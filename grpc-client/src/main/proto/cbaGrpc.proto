@@ -1,0 +1,24 @@
+syntax="proto3";
+package grpc;
+option java_multiple_files=true;
+
+message WriteRequest{
+  string grpcPostRequest = 1;
+}
+
+message WriteResponse{
+  string commandProcessingResult = 1;
+}
+
+message ReadRequest{
+  string readRequest = 1;
+}
+
+message ReadResponse{
+  string result = 1;
+}
+
+service RpcService {
+  rpc makeWriteRequest(WriteRequest) returns (WriteResponse);
+  rpc makeReadRequest(ReadRequest) returns (ReadResponse);
+}
